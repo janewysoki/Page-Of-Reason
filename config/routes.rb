@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'sessions#index'
   resources :reviews
   resources :books
   resources :authors
