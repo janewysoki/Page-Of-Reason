@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get '/' => 'sessions#index'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/signup' => 'users#new'
   resources :reviews
   resources :books
   resources :authors
