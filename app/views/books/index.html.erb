@@ -1,1 +1,8 @@
 <h1> All the Books </h1>
+
+<% @books.each do |b| %>
+    <h2><%= b.title%> - <%= b.author.name%></h2>
+    <div>
+        <p><%= b.description %> </p>
+    </div>
+<% end %>
