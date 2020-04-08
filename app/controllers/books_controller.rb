@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
 
+    def index
+    end
+    
     def new
         @book = Book.new
         @book.build_author #WHAT IS THIS DOING; better to place this in new instead of edit
