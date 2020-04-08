@@ -5,6 +5,16 @@ class BooksController < ApplicationController
         @book.build_author #WHAT IS THIS DOING; better to place this in new instead of edit
     end
 
+    def create
+        @book = Book.new(book_params)
+        @book.user_id = session[:user_id]
+        if @book.save
+            redirect_to book_path(@book)
+        else
+            render :new
+        end
+    end
+
     private
 
     def book_params
