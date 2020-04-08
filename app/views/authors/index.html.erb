@@ -1,1 +1,7 @@
 <h1>All Authors</h1>
+
+<ol>
+  <% @authors.each do |author| %>
+    <li><%= author.name %></li>
+  <% end %>
+</ol>

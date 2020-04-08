@@ -12,7 +12,7 @@
 
     <p> Select an Author that already exists: </p>
     <div>
-        <%= f.collection_select :author_id, Author.all, :id, :name %>
+        <%= f.collection_select :author_id, Author.all, :id, :name, include_blank: 'Select One' %>
     </div>
 
     <p> Or create a new Author: </p>
@@ -24,8 +24,3 @@
     </div>
     <%= f.submit "Add Book" %>
 <% end %>
-
-t.string "title"
-    t.string "description"
-    t.integer "author_id", null: false
-    t.integer "user_id", null: false

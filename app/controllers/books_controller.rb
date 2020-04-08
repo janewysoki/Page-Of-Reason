@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
 
     def index
+        @books = Book.all
     end
-    
+
     def new
         @book = Book.new
         @book.build_author #WHAT IS THIS DOING; better to place this in new instead of edit
@@ -11,9 +12,10 @@ class BooksController < ApplicationController
     def create
         @book = Book.new(book_params)
         @book.user_id = session[:user_id]
-        if @book.save
+        if @book.save #this is where validation happens
             redirect_to book_path(@book)
         else
+            @book.build_author
             render :new
         end
     end
