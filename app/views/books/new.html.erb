@@ -1,0 +1,31 @@
+<h1>Add a Book</h1>
+
+<%= form_for(@book) do |f|%>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+    </div>
+
+    <p> Select an Author that already exists: </p>
+    <div>
+        <%= f.collection_select :author_id, Author.all, :id, :name %>
+    </div>
+
+    <p> Or create a new Author: </p>
+    <div>
+        <%= f.fields_for :author do |a| %>
+            <%= a.label :name %>
+            <%= a.text_field :name %>
+        <% end %>
+    </div>
+    <%= f.submit "Add Book" %>
+<% end %>
+
+t.string "title"
+    t.string "description"
+    t.integer "author_id", null: false
+    t.integer "user_id", null: false
