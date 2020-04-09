@@ -3,5 +3,5 @@ class Review < ApplicationRecord
   belongs_to :book
 
   validates :title, presence: true
-  validates :rating, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than 11} #prevent someone from giving it 100 instead of 1-10
+  validates :rating, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than: 11} #prevent someone from giving it 100 instead of 1-10
 end
