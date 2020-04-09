@@ -1,4 +1,8 @@
-<h1>Write a Review for <%= @review.book.title %> by <%= @review.book.author.name %></h1>
+<% if params[:book_id] %> #do we have params book id? if we do, below is our title
+    <h1>Write a Review for <%= @review.book.title %> by <%= @review.book.author.name %></h1>
+<% else %> #if we don't have those params then here's a different h1 below
+    <h1>Write a Review</h1>
+<% end %>
 
 <%= form_for(@review) do |f| %>
     <div>    
