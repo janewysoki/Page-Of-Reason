@@ -6,7 +6,25 @@ class ReviewsController < ApplicationController
         @review = @book.reviews.build #(reviews.build instead of build.review beacuse a book doesn't belong to a review)
     end
 
+    def create
+        @review = Review.new(review_params) #instantiate rather than create cause of validations
+        if @review.save #automatically checks belongs to relationship
+            redirect_to review_path(@review)
+        else
+            render :new
+        end
+    end
+
+    def show
+        #how do i access book of review - @review.book
+    end
+
     def index
     end
 
+    private
+    #because we're doing hidden field, when i post this route, it posts to normal route like a normal review
+    def review_params
+        params.require(:review).permit(:book_id, :rating, :content, :title)
+    end
 end
