@@ -1,0 +1,19 @@
+<h1>Write a Review for <%= @review.book.title %> by <%= @review.book.author.name %></h1>
+
+<%= form_for(@review) do |f| %>
+    <div>    
+        <%= f.label :rating %>
+        <%= f.number_field :rating, min:0, max:10 %>
+    </div>
+    <div>    
+        <%= f.label :title %>
+        <%= f.text_area :title, size: "50x5" %>
+    </div>
+    <div>    
+        <%= f.label :content %>
+        <%= f.text_area :content, size: "50x10" %>
+    </div>
+    <%= f.hidden_field :book_id %>
+
+    <%= f.submit %>
+<% end %>
