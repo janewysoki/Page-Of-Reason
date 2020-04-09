@@ -1,0 +1,8 @@
+<h1>All Reviews</h1>
+
+<ul>
+<% @reviews.each do |r| %>
+    <li><%= r.book.title %>: <%= r.title %> - <%= r.rating %></li>
+    <%= r.content %>
+<% end %>
+</ul>
