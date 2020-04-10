@@ -21,6 +21,10 @@ class Book < ApplicationRecord
     end
   end
 
+  def title_and_author #reader method
+    "#{title} - #{author.name}"
+  end
+
 end
 
 #not treating book as a join table

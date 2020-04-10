@@ -12,7 +12,7 @@
     <% else %>
         <div>
             <%= f.label :book_id, "Select a Book" %>
-            <%= f.collection_select :book_id, Book.all, :id, :title, include_blank: true %>
+            <%= f.collection_select :book_id, Book.all, :id, :title_and_author, include_blank: true %>
         </div>
     <% end %>
     <br>
@@ -20,10 +20,12 @@
         <%= f.label :rating %>
         <%= f.number_field :rating, min:0, max:10 %>
     </div>
+    <br>
     <div>    
         <%= f.label :title %>
         <%= f.text_area :title, size: "50x5" %>
     </div>
+    <br>
     <div>    
         <%= f.label :content %>
         <%= f.text_area :content, size: "50x10" %>
