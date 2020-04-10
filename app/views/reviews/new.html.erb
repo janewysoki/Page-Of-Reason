@@ -7,6 +7,15 @@
 <% end %>
 
 <%= form_for(@review) do |f| %>
+    <% if params[:book_id] %>
+        <%= f.hidden_field :book_id %>
+    <% else %>
+        <div>
+            <%= f.label :book_id, "Select a Book" %>
+            <%= f.collection_select :book_id, Book.all, :id, :title, include_blank: true %>
+        </div>
+    <% end %>
+    <br>
     <div>    
         <%= f.label :rating %>
         <%= f.number_field :rating, min:0, max:10 %>

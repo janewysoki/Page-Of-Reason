@@ -5,9 +5,8 @@ class Book < ApplicationRecord
   has_many :users, through: :reviews #people who have reviewed it/plural user instances
   accepts_nested_attributes_for :author
 
-  validates :title, presence: true
-  validate :no_duplicates
-
+  validates :title, presence: true #validates is plural for default validations/non custom validations; validates always followed by an attribute
+  validate :no_duplicates #validates is singular when we have written a custom validator in the model
   #difference between validate and validateS?
 
   def author_attributes=(attributes)
