@@ -21,6 +21,11 @@ class Book < ApplicationRecord
     end
   end
 
+  def self.alphabetize #scope method
+    order(:title) #sql? default is asc order
+  end
+
+
   def title_and_author #reader method
     "#{title} - #{author.name}"
   end
