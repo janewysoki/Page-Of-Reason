@@ -18,7 +18,7 @@ class Book < ApplicationRecord
   def no_duplicates
     #if there's already a book with this title and brand, throw an error
     if Book.find_by(title: title, author_id: author_id) #why author ID and not author
-      errors.add(:title, "has already been added for that author")
+      errors.add(:title, 'has already been added for that author') # - view it <a href="%{/books/#{id}}"> here'</a>)
     end
   end
 
