@@ -1,4 +1,4 @@
-<%= render 'layouts/errors', loacls: {object: @review} %>
+<%= render partial: 'layouts/errors', loacls: {object: @review} %>
 
 <% if params[:book_id] %> #do we have params book id? if we do, below is our title
     <h1>Write a Review for <%= @review.book.title %> by <%= @review.book.author.name %></h1>
