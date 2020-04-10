@@ -6,7 +6,7 @@ class Book < ApplicationRecord
   accepts_nested_attributes_for :author
 
   def author_attributes=(attributes)
-   self.author = Author.find_or_create_by(attributes) if !attributes['name'].empty? #NEED EXPLANATION
+   self.author = Author.find_or_create_by(attributes) if !attributes['name'].empty? #NEED EXPLANATION //  SHOULD I USE :NAME INSTEAD OF ATTRIBUTES?
    self.author
   end
 end

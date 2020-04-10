@@ -10,8 +10,9 @@ class BooksController < ApplicationController
     end
 
     def create
-        @book = Book.new(book_params)
-        @book.user_id = session[:user_id]
+        #@book = Book.new(book_params)
+        #@book.user_id = session[:user_id]
+        @book = current_user.books.build(book_params)
         if @book.save #this is where validation happens
             redirect_to book_path(@book)
         else
@@ -22,7 +23,9 @@ class BooksController < ApplicationController
 
     def show
         @book = Book.find_by(params[:id])
-        #redirect_to books_path if !@book
+        if !@book
+            redirect_to books_path
+        end
     end
 
     private
