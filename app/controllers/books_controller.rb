@@ -16,13 +16,12 @@ class BooksController < ApplicationController
         if @book.save #this is where validation happens
             redirect_to book_path(@book)
         else
-            @book.build_author
             render :new
         end
     end
 
     def show
-        @book = Book.find_by(params[:id])
+        @book = Book.find_by(id: params[:id]) #find by id
         if !@book
             redirect_to books_path
         end
