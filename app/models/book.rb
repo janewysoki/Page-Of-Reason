@@ -34,3 +34,7 @@ class Book < ApplicationRecord
 end
 
 #not treating book as a join table
+
+#scope methods are intended to be methods that are classable methods and intended to be methods that are changing the scopr of a collection. instead of looking at all books, we look at books with rating. or we look at it in a speciic order. 
+#model methods  tend ot be any methods that are querying the database; has to do with grabbing things from db
+#helper methods tend to be very specific view methods only used in the views; has to do with how things are displayed; controllers can't access
