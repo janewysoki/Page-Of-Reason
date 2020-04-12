@@ -9,6 +9,8 @@ class Book < ApplicationRecord
   validate :no_duplicates #validates is singular when we have written a custom validator in the model
   #difference between validate and validateS?
 
+  scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(rating)')} #including left means it will return all books even those without ratings
+
   def author_attributes=(attributes)
    self.author = Author.find_or_create_by(attributes) if !attributes['name'].empty? #NEED EXPLANATION //  SHOULD I USE :NAME INSTEAD OF ATTRIBUTES?
    self.author
@@ -24,7 +26,6 @@ class Book < ApplicationRecord
   def self.alphabetize #scope method
     order(:title) #sql? default is asc order
   end
-
 
   def title_and_author #reader method
     "#{title} - #{author.name}"

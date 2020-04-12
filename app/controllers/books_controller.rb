@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
     def index
-        @books = Book.all
+        @books = Book.order_by_rating 
     end
 
     def new
@@ -12,7 +12,7 @@ class BooksController < ApplicationController
     def create
         #@book = Book.new(book_params)
         #@book.user_id = session[:user_id]
-        @book = current_user.books.build(book_params)
+        @book = current_user.books.build(book_params) #builds association
         if @book.save #this is where validation happens
             redirect_to book_path(@book)
         else
