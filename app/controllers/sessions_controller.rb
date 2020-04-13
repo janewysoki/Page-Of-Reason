@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
                 redirect_to user_path(@user)
             else
                 #if they dont correctly login
-                flash[:error] = "Sorry, you're login info was incorrect. Please try again." #intentionally not saying whether password or username is wrong cause that makes it easier to break in
+                flash[:error] = "Sorry, your login info was incorrect. Please try again." #intentionally not saying whether password or username is wrong cause that makes it easier to break in
                 redirect_to login_path
             end
         end
