@@ -15,10 +15,6 @@ class SessionsController < ApplicationController
             @user = User.create_by_google_omniauth(auth)
             session[:user_id] = @user.id
             redirect_to user_path(@user)
-        elsif params[:provider] == 'github'
-            @user = User.create_by_github_omniauth(auth)
-            session[:user_id] = @user.id
-            redirect_to user_path(@user)
         else
             #does the user exist in our system? try to find the user in the system
             @user = User.find_by(username: params[:user][:username])  #find by is better here because you have to put a key of username, not user id; FIND BY doesn't throw an error

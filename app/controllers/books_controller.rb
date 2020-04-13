@@ -27,6 +27,9 @@ class BooksController < ApplicationController
         end
     end
 
+    def edit
+    end
+
     private
 
     def book_params
