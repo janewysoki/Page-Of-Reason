@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create' #-- DO I NEED THIS?
   delete '/logout' => 'sessions#destroy'
 
-  get '/auth/:provider/callback' => 'sessions#omniauth'
+  get '/auth/:provider/callback' => 'sessions#create'
 
   resources :reviews
   resources :books do

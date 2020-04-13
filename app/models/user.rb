@@ -7,10 +7,15 @@ class User < ApplicationRecord
     
     has_secure_password #(gives us authenticate )
 
-    def self.set_google_omniauth(auth) #class levelmethod because it is being called on my user class
+    def self.create_by_google_omniauth(auth) #class levelmethod because it is being called on my user class
         self.find_or_create_by(username: auth[:info][:email]) do |u| #explain do block
             u.password = SecureRandom.hex #sets random password
         end
     end
 
+    def self.create_by_github_omniauth(auth) #CAN I COMBINE THIS AND METHOD ABOVE?
+        self.find_or_create_by(username: auth[:info][:email]) do |u| 
+            u.password = SecureRandom.hex 
+        end
+    end
 end
