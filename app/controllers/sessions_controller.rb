@@ -25,4 +25,14 @@ class SessionsController < ApplicationController
             redirect_to login_path
         end
     end
+
+    def omniauth
+        User.find_or_create_by(email: auth[:info][:email])
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
+    end
 end

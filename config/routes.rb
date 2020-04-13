@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  
   get '/' => 'sessions#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
-  #post '/signup' => 'users#create' -- DO I NEED THIS?
+  post '/signup' => 'users#create' #-- DO I NEED THIS?
   delete '/logout' => 'sessions#destroy'
+
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
+
   resources :reviews
   resources :books do
     resources :reviews, only: [:new, :index]

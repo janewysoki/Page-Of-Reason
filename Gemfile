@@ -25,6 +25,7 @@ gem 'bcrypt', '~> 3.1.7'
 #Omniauth Gems
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
 gem 'dotenv-rails' 
 
 # Use Active Storage variant
