@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_many :reviews
-    has_many :reviewed_books, through: :reviews, source: :book
+    has_many :reviewed_books, through: :reviews, source: :book  #no need to do additional join table with this line
     has_many :books # that the user has created
     
     validates :username, uniqueness: true, presence: true

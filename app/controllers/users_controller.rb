@@ -19,6 +19,9 @@ class UsersController < ApplicationController
         redirect_to '/' if !@user #send them to welcome index if we don't have user
     end
 
+    def edit
+    end
+    
     private
 
     def user_params
