@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
     def index
-        @books = Book.order_by_rating 
+        @books = Book.alphabetize
     end
 
     def new
