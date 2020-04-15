@@ -1,12 +1,3 @@
 <h1> All the Books </h1>
 
-<% @books.each do |b| %>
-    <h2><%= b.title %> by <%= b.author.name %></h2>
-    <p><%= b.description %> </p>
-    <%= link_to "edit book", edit_book_path(b) if b.user == current_user%>
-    <%= link_to "write a review", new_book_review_path(b.id) %>
-    <%= link_to "delete book", edit_book_path(b) if b.user == current_user%>
-    <div>
-        
-    </div>
-<% end %>
+<%= render partial: "books", locals: {books: @books} %>

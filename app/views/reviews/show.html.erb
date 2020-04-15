@@ -1,1 +1,5 @@
-<h1><%= @review.title %> - <%= @review.rating %></h1>
+<h1><%= @review.title %> - <%= @review.rating %>/10 </h1>
+<p><%= @review.content %></p>
+<h4>Added by: <%= link_to @review.user.username, review_path(@review.user)%> </h4>
+<br>
+<%= link_to "Edit Review", edit_review_path(@review) if @review.user == current_user %>

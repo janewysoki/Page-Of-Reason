@@ -1,1 +1,4 @@
-Welcome <%= @user.username %>!
+<h1>Welcome <%= @user.username %>!</h1>
+<h2> Here are the books you have added: </h2>
+<br>
+<%= render partial: "books/books", locals: {books: @user.books} %>

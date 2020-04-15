@@ -5,13 +5,8 @@
 <%= form_for(@book) do |f|%>
     <div>
         <%= f.label :title %>
-        <%= f.text_field :title %>
+        <%= f.text_field :title, size: "50x5" %>
     </div>
-    <div>
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-    </div>
-
     <p> Select an Author that already exists: </p>
     <div>
         <%= f.collection_select :author_id, Author.all, :id, :name, include_blank: 'Select One' %>
@@ -21,8 +16,13 @@
     <div>
         <%= f.fields_for :author do |a| %>
             <%= a.label :name %>
-            <%= a.text_field :name %>
+            <%= a.text_field :name, size: "50x5" %>
         <% end %>
+    </div>
+    <br>
+    <div>
+        <%= f.label :description %>
+        <%= f.text_area :description, size: "50x10" %>
     </div>
     <%= f.submit "Add Book" %>
 <% end %>

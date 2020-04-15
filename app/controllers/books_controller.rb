@@ -33,10 +33,10 @@ class BooksController < ApplicationController
 
     def update
         @book = Book.find(params[:id])
-        @book.update(title: params[:book][:title], author: params[:book][:author_id], description: params[:book][:description])
+        @book.update(book_params)
+        #@book.update(title: params[:book][:title], author: params[:book][:author_id], description: params[:book][:description])
         redirect_to book_path(@book)
-      end
-      
+    end
 
     private
 

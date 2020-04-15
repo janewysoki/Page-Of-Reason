@@ -37,6 +37,16 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def edit
+        @review = Review.find(params[:id])
+    end
+
+    def update
+        @review = Review.find(params[:id])
+        @review.update(review_params)
+        redirect_to review_path(@review)
+    end
+    
     private
     #because we're doing hidden field, when i post this route, it posts to normal route like a normal review
     def review_params

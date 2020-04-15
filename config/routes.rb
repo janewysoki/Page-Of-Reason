@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create' #-- DO I NEED THIS?
   delete '/logout' => 'sessions#destroy'
-
+  #delete '/books/:id' => 'books#destroy', as: 'book'
+  patch 'books/:id', to: 'books#update'
+  patch 'reviews/:id', to: 'reviews#update'
   get '/auth/:provider/callback' => 'sessions#create'
 
   resources :reviews
-  resources :books do
+  resources :books, only: [:index, :show, :new, :create, :edit, :update] do
     resources :reviews, only: [:new, :index]
   end
   resources :authors

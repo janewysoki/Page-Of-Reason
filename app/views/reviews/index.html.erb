@@ -1,8 +1,10 @@
 <h1>All Reviews</h1>
 
-<ul>
 <% @reviews.each do |r| %>
-    <li><%= r.book.title %>: <%= r.title %> - <%= r.rating %></li>
-    <%= r.content %>
+    <h3><%= link_to r.book.title, review_path(r) %> </h3>
+    <%= r.title %> - <%= r.rating %>/10
+    <p><%= r.content %></p>
+    <h4>Added by: <%= link_to r.user.username, review_path(r.user)%> </h4>
 <% end %>
-</ul>
+
+
