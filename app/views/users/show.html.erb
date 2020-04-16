@@ -7,7 +7,6 @@
 <%= render partial: "books/books", locals: {books: @user.books} %>
 <br>
 <h2> Here are the books you have reviewed: </h2>
-
 <% @user.reviewed_books.each do |rb| %>
-    <li><%= link_to rb.title_and_author, book_path(rb) %></li>
+    <li><%= link_to rb.title_and_author, review_path(rb) %></li>
 <% end %>
