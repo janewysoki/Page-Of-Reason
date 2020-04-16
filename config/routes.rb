@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#create'
 
   resources :reviews
-  resources :books, only: [:index, :show, :new, :create, :edit, :update] do
+  resources :books do
     resources :reviews, only: [:new, :index]
   end
   resources :authors#, only: [index]

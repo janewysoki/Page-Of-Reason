@@ -1,10 +1,10 @@
 <h1><%= @book.title %> by <%= @book.author.name %>  </h1>
-  <p><%= @book.description %></p>
-
+<p><%= @book.description %></p>
 <h4>Added by: <%= link_to @book.user.username, user_path(@book.user)%> </h4>
-<%= link_to "Write a Review", new_book_review_path(@book) %>
-<br>
 <%= link_to "Edit #{@book.title}", edit_book_path(@book) if @book.user == current_user %>
 <br>
+<%= link_to "Write a Review", new_book_review_path(@book) %>
+<br>
 <%= link_to "See all Reviews", book_reviews_path(@book) %>
-
+<br>
+rails delete form/delete button

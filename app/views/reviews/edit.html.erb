@@ -1,5 +1,7 @@
 <h1> Edit your Review </h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @review}  %>
+
 <%= form_for(@review) do |f| %>
     <% if params[:book_id] %>
         <%= f.hidden_field :book_id %>

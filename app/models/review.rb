@@ -9,5 +9,6 @@ class Review < ApplicationRecord
 
   def self.alphabetize #scope method
     order(:title) #sql? default is asc order
+    #activerecord scope method joins
   end
 end

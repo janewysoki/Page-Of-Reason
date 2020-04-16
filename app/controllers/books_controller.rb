@@ -18,6 +18,7 @@ class BooksController < ApplicationController
         if @book.save #this is where validation happens
             redirect_to book_path(@book)
         else
+            @book.build_author
             render :new
         end
     end
@@ -30,8 +31,11 @@ class BooksController < ApplicationController
 
     def update
         find_book
-        @book.update(book_params) #@book.update(title: params[:book][:title], author: params[:book][:author_id], description: params[:book][:description])
-        redirect_to book_path(@book)
+        if @book.update(book_params) #@book.update(title: params[:book][:title], author: params[:book][:author_id], description: params[:book][:description])
+            redirect_to book_path(@book)
+        else
+            render :edit
+        end
     end
 
     private

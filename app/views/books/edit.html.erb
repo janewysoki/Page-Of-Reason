@@ -1,16 +1,4 @@
 <h1> Edit <%= @book.title %> </h1>
 
 <%= render partial: "layouts/errors", locals: {object: @book} %>
-
-<%= form_for(@book) do |f| %>
-    <%= f.label :title %><br>
-    <%= f.text_field :title, size: "50x5" %><br>
-   
-    <%= f.label :author %><br>
-    <%= f.text_field :author, size: "50x5" %><br>
-
-    <%= f.label :description %><br>
-    <%= f.text_area :description, size: "50x10"%><br>
-   
-    <%= f.submit "Edit Book" %>
-<% end %>
+<%= render partial: 'form' %>

@@ -4,7 +4,7 @@ class User < ApplicationRecord
     has_many :books # that the user has created
     
     validates :username, uniqueness: true, presence: true
-    
+    #validates :password, length: {in: 4-20}
     has_secure_password #(gives us authenticate )
 
     def self.create_by_google_omniauth(auth) #class levelmethod because it is being called on my user class

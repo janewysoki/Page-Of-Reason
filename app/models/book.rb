@@ -6,10 +6,13 @@ class Book < ApplicationRecord
   accepts_nested_attributes_for :author
 
   validates :title, presence: true #validates is plural for default validations/non custom validations; validates always followed by an attribute
+  validates :author, presence: true
+  
   validate :no_duplicates #validates is singular when we have written a custom validator in the model
   #difference between validate and validateS?
 
   scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(rating)')} #including left means it will return all books even those without ratings
+  scope :alphabetize, -> { order(:title) }
 
   def author_attributes=(attributes)
     self.author = Author.find_or_create_by(attributes) if !attributes['name'].empty? #NEED EXPLANATION //  SHOULD I USE :NAME INSTEAD OF ATTRIBUTES?
@@ -24,9 +27,9 @@ class Book < ApplicationRecord
     end
   end
 
-  def self.alphabetize #scope method
-    order(:title) #sql? default is asc order
-  end
+  #def self.alphabetize #scope method
+    #order(:title) #sql? default is asc order
+  #end
 
   def title_and_author #reader method
     "#{title} - #{author.name}"
