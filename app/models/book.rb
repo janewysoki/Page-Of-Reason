@@ -7,11 +7,11 @@ class Book < ApplicationRecord
 
   validates :title, presence: true #validates is plural for default validations/non custom validations; validates always followed by an attribute
   validates :author, presence: true
-  
+
   validate :no_duplicates #validates is singular when we have written a custom validator in the model
   #difference between validate and validateS?
 
-  scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(rating)')} #including left means it will return all books even those without ratings
+  #scope :alphabetize, -> {joins(:reviews).order(:title)} #including left means it will return all books even those without ratings
   scope :alphabetize, -> { order(:title) }
 
   def author_attributes=(attributes)

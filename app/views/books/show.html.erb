@@ -7,4 +7,6 @@
 <br>
 <%= link_to "See all Reviews", book_reviews_path(@book) %>
 <br>
-rails delete form/delete button
+<%= form_for(@book, :html => { :method => :delete, :remote => true }) do |f| %>
+  <%= f.submit "Delete #{@book.title}" %>
+<% end %>

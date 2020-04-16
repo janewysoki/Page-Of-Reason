@@ -7,8 +7,8 @@ class Review < ApplicationRecord
   #two piece validation:
   validates :book, uniqueness: {scope: :user, message: "has already been reviewed by you"}
 
-  def self.alphabetize #scope method
-    order(:title) #sql? default is asc order
+  #def self.alphabetize #scope method
+    #order(:title) #sql? default is asc order
     #activerecord scope method joins
-  end
+  #end
 end

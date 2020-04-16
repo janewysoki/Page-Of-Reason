@@ -37,6 +37,11 @@ class BooksController < ApplicationController
             render :edit
         end
     end
+    
+    def destroy
+        Book.find_by(id: params[:id]).destroy
+        redirect_to book_path
+    end
 
     private
 

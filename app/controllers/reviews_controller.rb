@@ -34,11 +34,9 @@ class ReviewsController < ApplicationController
         if @book = Book.find_by_id(params[:book_id]) #if it's nested AND we successfully find a book from the nested id
             @reviews = @book.reviews.alphabetize #all of this book id's reviews
         else #if it's not nested
-            @reviews = Review.all.alphabetize
+            @reviews = Review.all
         end
     end
-
-    
 
     def edit
     end
