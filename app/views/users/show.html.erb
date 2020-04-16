@@ -1,4 +1,13 @@
 <h1>Welcome <%= @user.username %>!</h1>
+<p>Page of Reason was created for you to keep track of books you've read and your opinions of them.</p>
+<p>You will be able to see books read by, and reviews written by, other users using the links above.</p>
+<p>Books only you have added and reviewed will always be found here, on your homepage.</p>
+
 <h2> Here are the books you have added: </h2>
-<br>
 <%= render partial: "books/books", locals: {books: @user.books} %>
+<br>
+<h2> Here are the books you have reviewed: </h2>
+
+<% @user.reviewed_books.each do |rb| %>
+    <li><%= link_to rb.title_and_author, book_path(rb) %></li>
+<% end %>

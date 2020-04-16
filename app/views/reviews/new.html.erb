@@ -1,6 +1,6 @@
-<%= render partial: 'layouts/errors', locals: {object: @review} %>
-
 <%= display_review_header %>
+
+<%= render partial: 'layouts/errors', locals: {object: @review} %>
 
 <%= form_for(@review) do |f| %>
     <% if params[:book_id] %>

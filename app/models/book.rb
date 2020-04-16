@@ -12,8 +12,8 @@ class Book < ApplicationRecord
   scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(rating)')} #including left means it will return all books even those without ratings
 
   def author_attributes=(attributes)
-   self.author = Author.find_or_create_by(attributes) if !attributes['name'].empty? #NEED EXPLANATION //  SHOULD I USE :NAME INSTEAD OF ATTRIBUTES?
-   self.author
+    self.author = Author.find_or_create_by(attributes) if !attributes['name'].empty? #NEED EXPLANATION //  SHOULD I USE :NAME INSTEAD OF ATTRIBUTES?
+    self.author
   end
   
   def no_duplicates
