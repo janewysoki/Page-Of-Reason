@@ -18,9 +18,6 @@ class UsersController < ApplicationController
         @user = User.find(params[:id]) 
         redirect_to '/' if !@user #send them to welcome index if we don't have user
     end
-
-    def edit
-    end
     
     private
 
