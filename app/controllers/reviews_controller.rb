@@ -1,8 +1,10 @@
 class ReviewsController < ApplicationController
+    before_action :redirect_if_not_logged_in
+    before_action :find_review, only: [:show, :edit, :update]
 
     def new
         #if it's nested, do it this way
-        if @book = Book.find_by_id(params[:book_id])
+        if @book = Book.find_by_id(params[:book_id]) 
         #this is nested route so we want review to already know about book it's associated with
             @review = @book.reviews.build #(reviews.build instead of build.review beacuse a book doesn't belong to a review)
         else #if it's not nested
@@ -22,8 +24,6 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        #how do i access book of review - @review.book
-        @review = Review.find_by_id(params[:id])  # maybe turn this into set_review private method?
     end
 
     def index
@@ -38,11 +38,9 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        @review = Review.find(params[:id])
     end
 
     def update
-        @review = Review.find(params[:id])
         @review.update(review_params)
         redirect_to review_path(@review)
     end
@@ -51,5 +49,10 @@ class ReviewsController < ApplicationController
     #because we're doing hidden field, when i post this route, it posts to normal route like a normal review
     def review_params
         params.require(:review).permit(:book_id, :rating, :content, :title)
+    end
+
+    def find_review
+        @review = Review.find_by(id: params[:id])
+        redirect_to reviews_path if !@review
     end
 end
