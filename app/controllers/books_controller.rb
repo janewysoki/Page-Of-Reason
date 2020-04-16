@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+    before_action :find_book, only: [:show, :edit, :update]
+    before_action :redirect_if_not_logged_in
 
     def index
         @books = Book.alphabetize
@@ -21,20 +23,14 @@ class BooksController < ApplicationController
     end
 
     def show
-        @book = Book.find_by(id: params[:id]) #find by id
-        if !@book
-            redirect_to books_path
-        end
     end
 
     def edit
-        @book = Book.find(params[:id])
     end
 
     def update
-        @book = Book.find(params[:id])
-        @book.update(book_params)
-        #@book.update(title: params[:book][:title], author: params[:book][:author_id], description: params[:book][:description])
+        find_book
+        @book.update(book_params) #@book.update(title: params[:book][:title], author: params[:book][:author_id], description: params[:book][:description])
         redirect_to book_path(@book)
     end
 
@@ -46,8 +42,6 @@ class BooksController < ApplicationController
 
     def find_book
         @book = Book.find_by(id: params[:id])
-        if @book == nil
-            redirect '/books'
-        end
+        redirect_to books_path if !@book
     end
 end
