@@ -13,8 +13,10 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_not_logged_in
-        redirect_to login_path if !logged_in?
+        redirect_to login_path if !logged_in?   #how do i know when to use this?
     end
 
-    #permission to edit?
+    def authorized_to_edit?(book) 
+        book.user == current_user 
+    end
 end

@@ -43,4 +43,11 @@ class BooksController < ApplicationController
     def book_params
         params.require(:book).permit(:title, :description, :author_id, author_attributes: [:name])
     end
+
+    def find_book
+        @book = Book.find_by(id: params[:id])
+        if @book == nil
+            redirect '/books'
+        end
+    end
 end
