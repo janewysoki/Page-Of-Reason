@@ -1,6 +1,6 @@
 <h1><%= @book.title %> by <%= @book.author.name %>  </h1>
 <p><%= @book.description %></p>
-<h4>Added by: <%= link_to @book.user.username, user_path(@book.user)%> </h4>
+<h4>Added by: <%= @book.user.username %> </h4>
 <%= link_to "Edit #{@book.title}", edit_book_path(@book) if @book.user == current_user %>
 <br>
 <%= link_to "Write a Review", new_book_review_path(@book) %>

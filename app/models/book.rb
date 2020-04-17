@@ -11,7 +11,7 @@ class Book < ApplicationRecord
   validate :no_duplicates #validates is singular when we have written a custom validator in the model
   #difference between validate and validateS?
 
-  #scope :alphabetize, -> {joins(:reviews).order(:title)} #including left means it will return all books even those without ratings
+  #scope :alphabetize, -> {joins(:reviews).order('title.book.name')} #including left means it will return all books even those without ratings
   scope :alphabetize, -> { order(:title) }
 
   def author_attributes=(attributes)
