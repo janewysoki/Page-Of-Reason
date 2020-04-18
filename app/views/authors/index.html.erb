@@ -1,5 +1,5 @@
-<h1>All Authors</h1>
+<h3 class="center">All Authors</h3>
 <br>
   <% @authors.each do |author| %>
-    <li><%= link_to author.name, author_path(author) %></li>
+    <h5><li><%= link_to author.name, author_path(author) %></li></h5>
   <% end %>

@@ -1,19 +1,19 @@
 <%= form_for(@book) do |f|%>
-    <div>
+    <div class="input-field">   
         <%= f.label :title %>
         <%= f.text_field :title, size: "50x5" %>
     </div>
-    <div>
-    <div>
+    
+    <div class="input-field">   
         <%= f.fields_for :author do |a| %>
             <%= a.label :author %>
-            <%= a.text_field :name, size: "50x5" %>
+            <%= a.text_field :name %>
         <% end %>
     </div>
     <br>
-    <div>
+    <div class="input-field">   
         <%= f.label :description %>
         <%= f.text_area :description, size: "50x10" %>
     </div>
-    <%= f.submit %>
+    <%= f.submit :class => "btn indigo lighten-2" %>
 <% end %>

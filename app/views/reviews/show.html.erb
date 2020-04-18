@@ -1,7 +1,7 @@
-<h1><%= @review.title %> - <%= @review.rating %>/10 </h1>
-<p><%= @review.content %></p>
-<h4>Added by: <%= @review.user.username %> </h4>
-<br>
+<h4><%= @review.title %> - <%= @review.rating %>/10 </h4>
+<h6><%= @review.content %></h6>
+Added by: <%= @review.user.username %>
+<br><br>
 <%= link_to "Edit Review", edit_review_path(@review) if @review.user == current_user %>
 <br>
 <%= link_to "See all Reviews for this Book", book_reviews_path(@review) %>

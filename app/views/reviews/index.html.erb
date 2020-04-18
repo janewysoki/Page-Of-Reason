@@ -1,11 +1,11 @@
-<h1>All Reviews</h1>
+<h3 class="center">All Reviews</h3>
 
 <% @books.each do |b| %>
-    <h3><%= link_to b.title, book_path(b) %></h3>
-    <ul>
+    <h5><%= link_to b.title, book_path(b) %></h5>
+    
     <% b.reviews.each do |br| %>
-        <li><%= link_to br.title, review_path(b) %> </li>
+        <li><%= link_to br.title, review_path(br) %> </li>
     <% end %>
-    </ul>
+    
     <br>
 <% end %>

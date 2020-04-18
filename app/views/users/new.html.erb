@@ -1,15 +1,17 @@
 <%= render partial: 'layouts/errors', locals: {object: @user} %>
 
-<h1> Sign Up </h1>
+<h2> Sign Up </h2>
 
 <%= form_for(@user) do |f|%>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+    <div class="input-field">
+        <%= f.text_field :username %>
+        <%= f.label :username %>
+    </div>
+    <div class="input-field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </div>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+     <%= f.submit "Sign Up", :class => "btn indigo lighten-2" %>
 
-    <%= f.submit "Sign Up" %>
 <% end %>
-
-#there's also an email_field if you want user to enter email address

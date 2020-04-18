@@ -10,7 +10,8 @@
     
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="app/assets/stylesheets/application.css">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="app/assets/stylesheets/application.css">
     </head>
 <body>
   <nav class="indigo lighten-2">
@@ -26,30 +27,27 @@
           <li><%= link_to "Add a Review", new_review_path %> </li>
           <li><%= link_to "Log Out", logout_path, method: :delete %> </li>
         <% else %>
-          <li><%= link_to "Login", login_path %></li>
-          <li><%= link_to "Signup", signup_path %></li>
+          <li><%= link_to "Log In", login_path %></li>
+          <li><%= link_to "Sign Up", signup_path %></li>
           <li><%= link_to "Sign in with Google", "/auth/google_oauth2" %></li>
         <% end %>
       </ul>
     </div>
   </nav>
   <div class="container">
+    <% if flash[:message] %>
+      <h6 class="center" style="color: green;"><%= flash[:message] %></h6>
+    <% end %>
 
+    <% if flash[:error] %>
+      <h3 style="color: red;"><%= flash[:error] %></h3>
+    <% end %>
     <%= yield %>
   </div>
 
   
-  <% if flash[:message] %>
-    <h3 style="color: green;"><%= flash[:message] %></h3>
-  <% end %>
-
-  <% if flash[:error] %>
-    <h3 style="color: red;"><%= flash[:error] %></h3>
-  <% end %>
-
-
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <!-- Compiled and minified JavaScript -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

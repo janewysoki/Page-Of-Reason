@@ -1,6 +1,6 @@
 <% books.each do |b| %>
-    <h2><%= link_to b.title, book_path(b) %> by <%= b.author.name %></h2>
+    <h5><%= link_to b.title, book_path(b) %> by <%= b.author.name %></h5>
     <p><%= b.description %> </p>
-    <h4>Added by: <%= b.user.username %> </h4>
-    <%= link_to "write a review", new_book_review_path(b.id) %>
+    <p>Added by: <%= b.user.username %> </p>
+    <%= link_to "Write a Review", new_book_review_path(b.id) %>
 <% end %>

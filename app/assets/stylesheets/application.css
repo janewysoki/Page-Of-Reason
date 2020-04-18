@@ -19,3 +19,9 @@
     margin-right: auto;
     width: 99%;
   }
+  
+  
+  /* mouse over link */
+  a:hover {
+    color: rgb(29, 14, 238);
+  }
