@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
     <title>PageOfReason</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +11,14 @@
   </head>
 
   <div><%= render_nav_bar %></div>
+
+  <% if flash[:message] %>
+    <h3 style="color: green;"><%= flash[:message] %></h3>
+  <% end %>
+
+  <% if flash[:error] %>
+    <h3 style="color: red;"><%= flash[:error] %></h3>
+  <% end %>
 
   <body>
     <%= yield %>

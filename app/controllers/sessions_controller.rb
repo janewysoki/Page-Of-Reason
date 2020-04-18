@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
             #if @user.try(authenticate, params[:user][:password]) #try is active support method. whatever object the method try is called on (here, the user) - before calling the method, try says is my user nil or is it something. if user is found, it will authenticate. if no user is found, it will return nil
                 #if right user, you're authenticated and good to go so we need to create a session key to store the user in; how they get logged in
                 session[:user_id] = @user.id #logs the user in
+                flash[:message] = "Welcome"
                 redirect_to user_path(@user)
             else
                 #if they dont correctly login

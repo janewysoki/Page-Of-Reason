@@ -1,0 +1,5 @@
+<h1>Books by <%= @author.name %></h1>
+
+<% @books.each do |b| %>
+    <li><%= link_to b.title, book_path(b) %></li>
+<% end %>

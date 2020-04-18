@@ -4,4 +4,10 @@ class AuthorsController < ApplicationController
     def index
         @authors = Author.alphabetize
     end
+
+    def show
+        @author = Author.find_by(id: params[:id])
+        @books = @author.books
+        #has many gives access to .books here
+    end
 end

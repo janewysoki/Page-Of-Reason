@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id]) 
-        redirect_to '/' if !@user #send them to welcome index if we don't have user
+        redirect_to '/' if @user != current_user#send them to welcome index if we don't have user
     end
     
     private
