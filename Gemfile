@@ -23,7 +23,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.4.1'
 gem 'sprockets-rails', '~> 2.3.2'
-
+gem 'jquery-rails'
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 
 #Omniauth Gems
 gem 'omniauth'
