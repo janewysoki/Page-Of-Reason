@@ -1,7 +1,12 @@
 <h4><%= @review.title %> - <%= @review.rating %>/10 </h4>
 <h6><%= @review.content %></h6>
+<p></p>
 Added by: <%= @review.user.username %>
 <br><br>
 <%= button_to "Edit Review", edit_review_path(@review), :method => "get", :class => "btn indigo lighten-2" if @review.user == current_user %>
 <p></p>
-<%= button_to "See all Reviews for this Book", book_reviews_path(@review), :method => "get", :class => "btn indigo lighten-2" %>
+<%= button_to "See all Reviews for #{@review.book.title}", book_reviews_path(:book_id), :method => "get", :class => "btn indigo lighten-2" %>
+<p></p>
+<%= form_for(@review, :html => { :method => :delete, :remote => true }) do |f| %>
+    <%= f.submit "Delete your Review for #{@review.book.title}", :class => "btn indigo lighten-2" if @review.user == current_user %>
+<% end %>

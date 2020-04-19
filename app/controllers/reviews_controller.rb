@@ -49,6 +49,11 @@ class ReviewsController < ApplicationController
         @review.update(review_params)
         redirect_to review_path(@review)
     end
+
+    def destroy
+        Review.find_by(id: params[:id]).destroy
+        redirect_to review_path
+    end
     
     private
     #because we're doing hidden field, when i post this route, it posts to normal route like a normal review
