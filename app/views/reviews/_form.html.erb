@@ -1,7 +1,9 @@
+<%= render partial: 'layouts/errors', locals: {object: @review} %>
+
 <%= form_for(@review) do |f| %>
     <div>
         <%= f.label :book_id, "Select a Book" %>
-        <%= f.collection_select :book_id, Book.alphabetize, :id, :title_and_author, include_blank: true %>
+        <%= f.collection_select :book_id, Book.alphabetize, :id, :title_and_author, { include_blank: true }, {class: "btn btn-secondary dropdown-toggle"} %>
     </div>
     <br>
     <br>

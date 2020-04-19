@@ -25,3 +25,9 @@
   a:hover {
     color: rgb(29, 14, 238);
   }
+
+
+.dropdown-toggle {
+   color: red;
+   background-color: #1483f3;
+  }
