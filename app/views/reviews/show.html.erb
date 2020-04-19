@@ -2,6 +2,6 @@
 <h6><%= @review.content %></h6>
 Added by: <%= @review.user.username %>
 <br><br>
-<%= link_to "Edit Review", edit_review_path(@review) if @review.user == current_user %>
-<br>
-<%= link_to "See all Reviews for this Book", book_reviews_path(@review.books.all) %>
+<%= button_to "Edit Review", edit_review_path(@review), :method => "get", :class => "btn indigo lighten-2" if @review.user == current_user %>
+<p></p>
+<%= button_to "See all Reviews for this Book", book_reviews_path(@review), :method => "get", :class => "btn indigo lighten-2" %>

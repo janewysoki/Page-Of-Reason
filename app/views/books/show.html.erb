@@ -1,14 +1,14 @@
 <h4><%= @book.title %> by <%= @book.author.name %></h4>
 <h6><%= @book.description %></h6>
-Added by: <%= @book.user.username %>
-<br>
+<p></p>
+<p>Added by: <%= @book.user.username %></p>
 <br>
 <%= button_to "Edit #{@book.title}", edit_book_path(@book), :method => "get", :class => "btn indigo lighten-2" if @book.user == current_user %>
-<br>
-<%= link_to "Write a Review for #{@book.title}", new_book_review_path(@book),:method => "get", :class => "btn indigo lighten-2" %>
-<br><br>
-<%= link_to "See all Reviews for #{@book.title}", book_reviews_path(@book),:method => "get", :class => "btn indigo lighten-2" %>
-<br><br>
+<p></p>
+<%= button_to "Write a Review for #{@book.title}", new_book_review_path(@book),:method => "get", :class => "btn indigo lighten-2" %>
+<p></p>
+<%= button_to "See all Reviews for #{@book.title}", book_reviews_path(@book),:method => "get", :class => "btn indigo lighten-2" %>
+<p></p>
 <%= form_for(@book, :html => { :method => :delete, :remote => true }) do |f| %>
   <%= f.submit "Delete #{@book.title}", :class => "btn indigo lighten-2" if @book.user == current_user %>
 <% end %>
