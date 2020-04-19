@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :logged_in? #explain purpose
+    helper_method :current_user, :logged_in?
 
     private
     
@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_not_logged_in
-        redirect_to login_path if !logged_in?   #how do i know when to use this?
+        redirect_to login_path if !logged_in?
     end
 end

@@ -2,10 +2,8 @@
 
 <% @books.each do |b| %>
     <h5><%= link_to b.title, book_path(b) %></h5>
-    
     <% b.reviews.each do |br| %>
         <li><%= link_to br.title, review_path(br) %> </li>
     <% end %>
-    
     <br>
 <% end %>

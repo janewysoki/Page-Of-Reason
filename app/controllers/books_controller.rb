@@ -8,14 +8,12 @@ class BooksController < ApplicationController
 
     def new
         @book = Book.new
-        @book.build_author #WHAT IS THIS DOING; better to place this in new instead of edit
+        @book.build_author 
     end
 
     def create
-        #@book = Book.new(book_params)
-        #@book.user_id = session[:user_id]
-        @book = current_user.books.build(book_params) #builds association
-        if @book.save #this is where validation happens
+        @book = current_user.books.build(book_params)
+        if @book.save
             flash[:message] = "Book successfully created."
             redirect_to book_path(@book)
         else
@@ -32,7 +30,7 @@ class BooksController < ApplicationController
 
     def update
         find_book
-        if @book.update(book_params) #@book.update(title: params[:book][:title], author: params[:book][:author_id], description: params[:book][:description])
+        if @book.update(book_params) 
             flash[:message] = "Book successfully edited."
             redirect_to book_path(@book)
         else
