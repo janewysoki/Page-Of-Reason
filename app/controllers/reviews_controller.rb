@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
         @review = current_user.reviews.build(review_params) #have to have a help method for current_user to use this line of code
         #line above could also be: @review.user_id = session[:user_id]
         if @review.save #automatically checks belongs to relationship
+            flash[:message] = "Review successfully created."
             redirect_to review_path(@review)
         else
             render :new
@@ -45,11 +46,13 @@ class ReviewsController < ApplicationController
 
     def update
         @review.update(review_params)
+        flash[:message] = "Book successfully edited."
         redirect_to review_path(@review)
     end
 
     def destroy
         Review.find_by(id: params[:id]).destroy
+        flash[:message] = "Book successfully deleted."
         redirect_to review_path
     end
     

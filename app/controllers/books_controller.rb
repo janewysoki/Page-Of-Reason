@@ -16,6 +16,7 @@ class BooksController < ApplicationController
         #@book.user_id = session[:user_id]
         @book = current_user.books.build(book_params) #builds association
         if @book.save #this is where validation happens
+            flash[:message] = "Book successfully created."
             redirect_to book_path(@book)
         else
             @book.build_author
@@ -32,6 +33,7 @@ class BooksController < ApplicationController
     def update
         find_book
         if @book.update(book_params) #@book.update(title: params[:book][:title], author: params[:book][:author_id], description: params[:book][:description])
+            flash[:message] = "Book successfully edited."
             redirect_to book_path(@book)
         else
             render :edit
@@ -40,6 +42,7 @@ class BooksController < ApplicationController
     
     def destroy
         Book.find_by(id: params[:id]).destroy
+        flash[:message] = "Book successfully deleted."
         redirect_to book_path
     end
 
