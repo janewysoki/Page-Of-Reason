@@ -37,13 +37,13 @@ class ReviewsController < ApplicationController
 
     def update
         @review.update(review_params)
-        flash[:message] = "Book successfully edited."
+        flash[:message] = "Review successfully edited."
         redirect_to review_path(@review)
     end
 
     def destroy
         Review.find_by(id: params[:id]).destroy
-        flash[:message] = "Book successfully deleted."
+        flash[:message] = "Review successfully deleted."
         redirect_to review_path
     end
     
