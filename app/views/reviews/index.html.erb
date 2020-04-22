@@ -1,11 +1,10 @@
 <% if @book %>
-    <h3 class="center">All Reviews for <%= @book.title %> by <%= @book.author.name %></h3>
-    <p></p>
+    <h3 class="center">All Reviews for <%= link_to @book.title,book_path(@book) %> by <%= @book.author.name %></h3>
+    <br>
     <% @book.reviews.each do |r| %>
             <h5><%= link_to r.title, review_path(r) %> - <%= r.rating %>/10</h5>
-            <p><%= r.content %></p>
-            <p>Added by: <%= r.user.username %></p>
-            <br>
+            <h6><%= r.content %></h6>
+            <p>Review by: <%= r.user.username %></p>
     <% end %>
 <% else %>
     <h3 class="center">All Reviews</h3>

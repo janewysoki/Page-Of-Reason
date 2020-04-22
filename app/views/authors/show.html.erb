@@ -1,5 +1,5 @@
-<h3>Books by <%= @author.name %></h3>
+<h3 class="center">Books by <%= @author.name %></h3>
 
 <% @books.each do |b| %>
-    <h6><li><%= link_to b.title, book_path(b) %></li></h6>
+    <h5><li><%= link_to b.title, book_path(b) %></li></h5>
 <% end %>
