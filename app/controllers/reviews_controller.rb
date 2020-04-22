@@ -11,7 +11,6 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        
         @review = current_user.reviews.build(review_params) 
         if @review.save 
             flash[:message] = "Review successfully created."
@@ -26,8 +25,9 @@ class ReviewsController < ApplicationController
 
     def index
         if @book = Book.find_by_id(params[:book_id])
-            @books = @book.reviews 
+            @reviews = @book.reviews 
         else 
+
             @books = Book.alphabetize
         end
     end
