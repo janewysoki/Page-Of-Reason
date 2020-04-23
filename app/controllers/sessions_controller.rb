@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
                 flash[:message] = "Books you have personally read and reviewed will always appear here, on your homepage."
                 redirect_to user_path(@user)
             else
-                flash[:error] = "Sorry, your login info was incorrect. Please try again." #intentionally not saying whether password or username is wrong cause that makes it easier to break in
+                flash[:error] = "Sorry, your login info was incorrect. Please try again." 
                 redirect_to login_path
             end
         end

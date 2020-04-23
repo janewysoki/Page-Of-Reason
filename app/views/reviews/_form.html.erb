@@ -21,5 +21,6 @@
         <%= f.label :content %>
         <%= f.text_area :content, size: "50x10" %>
     </div>
+    <%= f.hidden_field :book_id %>
     <%= f.submit :class => "btn indigo lighten-2" %>
 <% end %>

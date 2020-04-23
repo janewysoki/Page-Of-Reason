@@ -11,7 +11,7 @@ class Book < ApplicationRecord
 
   scope :alphabetize, -> { order(:title) }
 
-  def author_attributes=(attributes)
+  def author_attributes=(attributes) 
     self.author = Author.find_or_create_by(attributes) if !attributes['name'].empty?
     self.author
   end

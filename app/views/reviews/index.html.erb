@@ -1,5 +1,5 @@
 <% if @book %>
-    <h3 class="center">All Reviews for <%= link_to @book.title,book_path(@book) %> by <%= @book.author.name %></h3>
+    <h3 class="center">All Reviews for <%= link_to @book.title, book_path(@book) %> by <%= @book.author.name %></h3>
     <br>
     <% @book.reviews.each do |r| %>
             <h5><%= link_to r.title, review_path(r) %> - <%= r.rating %>/10</h5>

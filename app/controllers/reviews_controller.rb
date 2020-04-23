@@ -27,7 +27,6 @@ class ReviewsController < ApplicationController
         if @book = Book.find_by_id(params[:book_id])
             @reviews = @book.reviews 
         else 
-
             @books = Book.alphabetize
         end
     end
