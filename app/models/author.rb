@@ -3,5 +3,5 @@ class Author < ApplicationRecord
     validates :name, presence: true, uniqueness: true
 
     scope :alphabetize, -> { order(:name) }
-  
+    scope :search, -> (search_word) { where("name LIKE ?", "#{search_word}%") }
 end

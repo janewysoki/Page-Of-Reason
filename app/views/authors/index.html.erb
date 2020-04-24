@@ -1,5 +1,13 @@
 <h3 class="center">All Authors</h3>
 <br>
-  <% @authors.each do |author| %>
+<% @authors.each do |author| %>
     <h5><li><%= link_to author.name, author_path(author) %></li></h5>
-  <% end %>
+<% end %>
+
+
+<%= form_tag authors_path, :method => "get" do %>
+  <label> Search by First Letter of an Author's First Name </label>
+  <%= text_field_tag :search, params[:search] %><br>
+  <%= submit_tag "Search" %>
+<% end %>
+

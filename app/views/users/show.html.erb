@@ -10,3 +10,4 @@
 <% @user.reviewed_books.each do |rb| %>
     <li><%= link_to rb.title_and_author, review_path(rb) %></li>
 <% end %>
+
